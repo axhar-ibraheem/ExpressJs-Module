@@ -1,25 +1,18 @@
 const express = require("express");
 const app = express();
+const adminRoutes = require("./routes/admin");
+const shopRouter = require("./routes/shop");
 const PORT = 3000;
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json())
+app.use(express.json());
 
-app.use("/add-product",(req, res, next) => {
-  console.log("this is the second middleware")
-  const formHtml = '<form action="/product" method="POST"><input type="text" name="title"><input type="number" name ="size"><button>Add Product</button></form>'
-  res.send(formHtml)
-})
+app.use("/admin", adminRoutes);
+app.use('/shop', shopRouter);
 
-app.use("/product", (req, res, next)=> {
-  console.log(req.body)
-  res.redirect("/")
-})
-app.use('/', (req, res, next) => {
-  res.send('<h1> Hello from express </h1>')
-   
+app.use((req, res, next) => {
+  res.status(404).send("<h1>Page not found </h1>");
 });
-
 app.listen(PORT, () => {
   console.log(`server is listning on port ${PORT}...`);
 });
