@@ -1,13 +1,13 @@
 const express = require("express");
+const path = require("path")
+const rootDir = require('../utils/path')
 const adminRouter = express.Router();
-
-adminRouter.get("/add-product",(req, res, next) => {
-    console.log("this is the second middleware")
-    const formHtml = '<form action="/admin/product" method="POST"><input type="text" name="title"><input type="number" name ="size"><button>Add Product</button></form>'
-    res.send(formHtml)
+ 
+adminRouter.get("/add-product",(req, res) => {
+    res.sendFile(path.join(rootDir, 'views', 'add-product.html'))
   })
-  
-  adminRouter.post("/product", (req, res, next)=> {
+
+  adminRouter.post("/product", (req, res)=> {
     console.log(req.body)
     res.redirect("/shop")
   })

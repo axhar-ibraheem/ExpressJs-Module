@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+li {
+  list-style-type: none;
+}
+
+.nav-header {
+  background-color: rgb(12, 23, 50);
+  width: 100%;
+}
+.nav-center {
+  width: 72rem;
+  margin-inline: auto;
+  max-width: 90%;
+  padding: 1rem 2rem;
+}
+.navbar {
+  display: flex;
+  gap: 2rem;
+}
+.nav-center li a {
+  color: rgb(255, 255, 255);
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+.nav-center li a.active,
+.nav-center li a:active,
+.nav-center li a:hover {
+  color: goldenrod;
+}
+.section-center {
+  padding: 2rem;
+}
+.products-center {
+  width: 72rem;
+  max-width: 90%;
+  margin-inline: auto;
+}
+.products-center h1 {
+  margin-bottom: 1rem;
+}
